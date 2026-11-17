@@ -8,17 +8,17 @@ The ChatGPT share URL supplied for this project returned only preview metadata, 
 
 ## Contact
 
-Set `contactEmail` in `config.js` to the verified public business email. Until then, the enquiry form downloads a text draft and clearly explains that it sends nothing. With an email configured, the form opens the visitor’s email app; the visitor must send it there. There is no backend or inbox service.
+Set `contactEmail` in `config.js` to the verified public business email. Until then, the enquiry form downloads a text draft and clearly explains that it sends nothing. With an email configured, the form opens the visitorâ€™s email app; the visitor must send it there. There is no backend or inbox service.
 
 ## Checks and build
 
-Run `npm run check` and `npm run build`. The `dist` directory contains the complete publishable site. There are no npm dependencies. Google Fonts is optional; local system fonts provide fallbacks.
+Run `npm run check` and `npm run build`. The `dist` directory contains the complete publishable site. There are no npm dependencies. The site uses system fonts and bundled vector artwork, with no third-party asset requests.
 
 ## Publish on GitHub Pages
 
 1. Create a dedicated repository (suggested: `ave-consultancy`) in the intended GitHub account. A public repository supports GitHub Free Pages hosting.
 2. Push the contents of this directory to its `main` branch.
-3. Open repository **Settings → Pages → Build and deployment → Source → GitHub Actions**.
+3. Open repository **Settings â†’ Pages â†’ Build and deployment â†’ Source â†’ GitHub Actions**.
 4. The included Pages workflow checks, builds, and deploys. If the first run happened before enabling Pages, rerun it from the Actions tab.
 5. Use the live URL reported by the successful deployment. A repository named `ave-consultancy` under `ACLUW` normally uses `https://acluw.github.io/ave-consultancy/`; this is only an expected address until deployment succeeds.
 
