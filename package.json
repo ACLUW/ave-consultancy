@@ -1,0 +1,11 @@
+{
+  "name": "ave-consultancy-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ave Consultancy Ltd portfolio website",
+  "scripts": {
+    "check": "node --check app.js && node --check config.js && node scripts/check.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "python -m http.server 4173 --bind 127.0.0.1"
+  }
+}

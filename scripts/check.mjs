@@ -1,0 +1,11 @@
+import { readFile, access } from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const root = new URL('../', import.meta.url);
+const html = await readFile(new URL('index.html', root), 'utf8');
+const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+assert.equal(ids.length, new Set(ids).size, 'Duplicate HTML IDs');
+for (const [, target] of html.matchAll(/href="#([^"]+)"/g)) assert(ids.includes(target), `Missing anchor #${target}`);
+for (const [, target] of html.matchAll(/(?:src|href)="([^"#:]+\.(?:css|js|svg))"/g)) await access(new URL(target, root));
+assert(html.includes('role="status"'), 'Form feedback must be announced');
+assert(!/href="#"[^>]*>[^<]*(?:download|contact|project)/i.test(html), 'Unimplemented action');
+console.log('Checked internal links, unique IDs, local assets, and form feedback.');
