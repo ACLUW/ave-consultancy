@@ -1,31 +1,36 @@
-# Ave Consultancy Ltd portfolio
+# AVE Consultancy website
 
-A responsive, dependency-free static site for GitHub Pages. Open `index.html` directly, or run `npm run preview` and visit http://127.0.0.1:4173.
+A multi-page, dependency-free static website for GitHub Pages. Live at https://acluw.github.io/ave-consultancy/.
 
-## Content status
+## Pages and features
 
-The ChatGPT share URL supplied for this project returned only preview metadata, without conversation content. The business name is inferred from the workspace name. All website copy and focus areas are provisional editorial suggestions requiring owner review. No clients, qualifications, performance statistics, testimonials, team biographies, or completed projects are claimed. Add verified case studies when supplied.
+15 content pages plus a custom 404 page: Home, five service pages, Services, About, How We Work, Navigator, Business Confidence, Contact, FAQs, Capability Overview and Privacy.
 
-## Contact
+Search and filter service areas, compare up to three services, match a requirement locally, switch between client and partnership information, track a temporary diligence checklist and build a three-step enquiry brief. Briefs can be copied, downloaded or opened in an email application. The visitor decides whether to send the email; there is no submission backend or inbox integration.
 
-Set `contactEmail` in `config.js` to the verified public business email. Until then, the enquiry form downloads a text draft and clearly explains that it sends nothing. With an email configured, the form opens the visitorâ€™s email app; the visitor must send it there. There is no backend or inbox service.
+## Content and branding
 
-## Checks and build
+The supplied AVE interactive HTML, reimagined profile and strategic recommendations inform the public content. The original blue/green logo, founder portrait and category photographs are extracted from the supplied materials. Category photos are explicitly illustrative, not project records. No named projects, financial metrics, testimonials, licences or corporate registration numbers have been invented. Founder credentials are attributed to the supplied profile. Internal strategy documents and original draft documents are not published as downloads.
 
-Run `npm run check` and `npm run build`. The `dist` directory contains the complete publishable site. There are no npm dependencies. The site uses system fonts and bundled vector artwork, with no third-party asset requests.
+Business contact: aveconsultancy15@gmail.com / +234 806 409 8643 / Abuja, Nigeria.
 
-## Publish on GitHub Pages
+## Development
 
-1. Create a dedicated repository (suggested: `ave-consultancy`) in the intended GitHub account. A public repository supports GitHub Free Pages hosting.
-2. Push the contents of this directory to its `main` branch.
-3. Open repository **Settings â†’ Pages â†’ Build and deployment â†’ Source â†’ GitHub Actions**.
-4. The included Pages workflow checks, builds, and deploys. If the first run happened before enabling Pages, rerun it from the Actions tab.
-5. Use the live URL reported by the successful deployment. A repository named `ave-consultancy` under `ACLUW` normally uses `https://acluw.github.io/ave-consultancy/`; this is only an expected address until deployment succeeds.
+- `npm run preview`: serve the root at http://127.0.0.1:4173 (Python required).
+- `npm run render`: regenerate HTML from `scripts/render.mjs` and service content in `data/services.js`.
+- `npm run check`: render, check JavaScript syntax, test matching/brief generation and validate all page links, assets, IDs and basic accessibility structure.
+- `npm run build`: render and package only public website assets in `dist/`.
 
-Relative asset paths support repository subpaths. No custom domain or paid service is needed.
+On Windows PowerShell, use `npm.cmd` if local execution policy blocks `npm.ps1`. No dependency installation is necessary. Edit shared layouts and page content in `scripts/render.mjs`, not the generated HTML. Edit service data in `data/services.js`, interactions in `app.js` and branding/layout in `styles.css`.
 
-Workflow reference: https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
+## Publishing
 
-## Before promoting the site
+Push to `main`. The included GitHub Actions workflow checks, builds and deploys `dist/` to GitHub Pages. Repository Pages source is GitHub Actions. All page assets use relative paths to support the repository subdirectory.
 
-Confirm the business name, focus areas, brand copy, public contact email, and any legal footer requirements. Replace provisional content using the original conversation when it becomes available.
+## Privacy and limitations
+
+Personal enquiry content stays in page memory until the visitor explicitly copies, downloads or opens an email draft. Session storage holds public comparison service IDs only. The website uses system fonts and bundled imagery. GitHub hosting may process technical connection information. The navigator uses local word matching, not generative AI. Service availability, scope, pricing and provider credentials must be confirmed directly. No independently verified case-study portfolio is represented.
+
+## Validation record
+
+Local build and checks cover every generated page and internal link. Browser accessibility inspection confirmed the local homepage loads. Desktop screenshot capture and pointer geometry were unavailable in the current browser-control environment, so full visual and device interaction verification could not be completed here.

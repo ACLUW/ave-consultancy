@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { matchServices, buildBrief } from '../data/matching.js';
+test('construction sourcing maps to property',()=>assert.equal(matchServices('Construction site supervision and building materials')[0].id,'property'));
+test('conference and airport transport maps to logistics',()=>assert.equal(matchServices('Airport transport for conference guests with hotel booking')[0].id,'logistics'));
+test('livestock and feed map to agriculture',()=>assert.equal(matchServices('Piglet feed and livestock boarding')[0].id,'agriculture'));
+test('registration and corporate documents map to business',()=>assert.equal(matchServices('CAC registration and corporate profile documents')[0].id,'business'));
+test('communication coaching maps to education',()=>assert.equal(matchServices('Diction coaching and public speaking training')[0].id,'education'));
+test('mixed requests retain multiple services',()=>{const ids=matchServices('Building materials for construction and airport transport for contractors').map(s=>s.id);assert(ids.includes('property'));assert(ids.includes('logistics'));});
+test('unrelated and ambiguous substrings do not fabricate matches',()=>{assert.deepEqual(matchServices('carbon footprint assessment'),[]);assert.deepEqual(matchServices('unrelated request'),[]);assert.deepEqual(matchServices(''),[]);});
+test('brief preserves explicit scope, contact and plain text',()=>{const text=buildBrief({name:'Test & Review',email:'test@example.com',services:'Real Estate & Projects',requirement:'<script>display as plain text</script>'});assert(text.includes('Test & Review'));assert(text.includes('test@example.com'));assert(text.includes('Real Estate & Projects'));assert(text.includes('<script>display as plain text</script>'));assert(text.includes('Location: To confirm'));});
